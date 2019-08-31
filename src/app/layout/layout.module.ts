@@ -9,15 +9,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+
+import { NgImageSliderModule } from 'ng-image-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LayoutComponent } from "./layout.component";
 import { BusCompanyComponent } from './bus-company/bus-company.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 @NgModule({
   declarations: [
     SideNavComponent,
     LayoutComponent,
     BusCompanyComponent,
+    ImageSliderComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +34,10 @@ import { BusCompanyComponent } from './bus-company/bus-company.component';
     MatIconModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    NgImageSliderModule,
+    NgbModule,
+    MatInputModule,
   ],
   exports:[
     LayoutComponent

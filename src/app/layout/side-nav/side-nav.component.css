@@ -16,7 +16,18 @@
   z-index: 1;
 }
 
-.EB-name{
-  /* margin-right: 3.5%;
-    margin-left: 3.5%; */
+.contents{
+  /* display: flex;
+  justify-content:space-between; */
+  /* background: rgb(156, 48, 48); */
+}
+
+.recomended-travel{
+  /* display: flex;
+  justify-content: space-between; */
+  /* background: rgb(133, 58, 58); */
+}
+
+.image-slider{
+  
 }
