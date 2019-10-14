@@ -1,0 +1,38 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.content-basdoad{
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 100%;
+  width: 50%;
+  background: rgb(160, 158, 158);
+}
+.business div:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.business div.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.business div.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
