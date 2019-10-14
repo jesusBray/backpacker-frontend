@@ -16,7 +16,10 @@
   z-index: 1;
 }
 
-.EB-name{
-  /* margin-right: 3.5%;
-    margin-left: 3.5%; */
+.content-basdoad{
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 100%;
+  width: 50%;
+  background: rgb(160, 158, 158);
 }

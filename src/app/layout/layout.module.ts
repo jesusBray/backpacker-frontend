@@ -9,15 +9,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 import { LayoutComponent } from "./layout.component";
 import { BusCompanyComponent } from './bus-company/bus-company.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardBusesComponent } from './dashboard-buses/dashboard-buses.component';
 
 @NgModule({
   declarations: [
     SideNavComponent,
     LayoutComponent,
     BusCompanyComponent,
+    DashboardComponent,
+    DashboardBusesComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +33,8 @@ import { BusCompanyComponent } from './bus-company/bus-company.component';
     MatIconModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   exports:[
     LayoutComponent

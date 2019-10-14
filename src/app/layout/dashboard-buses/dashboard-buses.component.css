@@ -1,0 +1,18 @@
+.content-buses{
+    height: 100%;
+    width: 100%;
+}
+
+.example-card {
+    max-width: 50%;
+}
+
+.example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    /* background-size: cover; */
+}
+
+.content-card{
+    padding-top: 1%;
+    margin: 1%;
+}

@@ -13,10 +13,7 @@ export class BusCompanyComponent implements OnInit {
   private unsubscribe: Subject<any> = new Subject<any>();
   constructor(private service :CoreService) { }
 
-  ngOnInit() {
-  // start render of funcctions
-    this.getCompanyBuss()
-  }
+  ngOnInit() { }
 
   public displayedColumns: string[] = ['name_empresa', 'num_bus', 'horario_llegada', 'horario_salida','phone','tiempo_receso'];
   public dataSource = null;

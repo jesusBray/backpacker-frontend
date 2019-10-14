@@ -5,10 +5,11 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <span>Empresas de Buses</span>
-      <a mat-list-item href="companyBus">Bolivar</a>
-      <a mat-list-item href="companyBus">Copacabana</a>
-      <a mat-list-item href="companyBus">Stronger</a>
+      <div *ngFor="let business of dataSource">
+        <a mat-list-item (click)=activatePanel() [class.selected]="business === selectedBusiness">
+          {{business.name}}
+        </a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,5 +24,13 @@
       </button>
     </mat-toolbar>
     <!-- Add Content Here -->
+  <div class="content-basdoad">
+    <div *ngIf="show; else elseBlock">
+      <app-dashboard-buses [bussines]="selectedBusiness"></app-dashboard-buses>
+    </div>
+    <ng-template #elseBlock>
+        <app-dashboard></app-dashboard>
+    </ng-template>
+  </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
