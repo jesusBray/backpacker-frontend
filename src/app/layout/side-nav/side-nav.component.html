@@ -6,7 +6,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <div *ngFor="let business of dataSource">
-        <a mat-list-item (click)=activatePanel() [class.selected]="business === selectedBusiness">
+        <a mat-list-item [class.selected]="business === selectedBusiness" (click)=activatePanel(business)>
           {{business.name}}
         </a>
       </div>
@@ -26,7 +26,7 @@
     <!-- Add Content Here -->
   <div class="content-basdoad">
     <div *ngIf="show; else elseBlock">
-      <app-dashboard-buses [bussines]="selectedBusiness"></app-dashboard-buses>
+      <app-dashboard-buses [getNameCompany]="companyBuss"></app-dashboard-buses>
     </div>
     <ng-template #elseBlock>
         <app-dashboard></app-dashboard>

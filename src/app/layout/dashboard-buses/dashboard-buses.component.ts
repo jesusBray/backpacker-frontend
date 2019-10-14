@@ -8,7 +8,6 @@ const mockBuses =
     bus:[
       { 
         id:123,
-        numBus:1,
         matricula:'xxx-123'
       }
     ]
@@ -19,7 +18,6 @@ const mockBuses =
     bus:[
       { 
         id:123,
-        numBus:2,
         matricula:'xxx-123'
       }
     ]
@@ -30,7 +28,6 @@ const mockBuses =
     bus:[
       { 
         id:123,
-        numBus:1,
         matricula:'xxx-123'
       }
     ]
@@ -41,7 +38,6 @@ const mockBuses =
     bus:[
       { 
         id:123,
-        numBus:3,
         matricula:'xxx-123'
       }
     ]
@@ -55,22 +51,25 @@ const mockBuses =
 })
 export class DashboardBusesComponent implements OnInit {
 
-  @Input() bussines;
+  @Input() getNameCompany;
 
   constructor() { }
 
   buses = ['bus1', 'Bus2', 'Bus3', 'Bus4'];
   valornombre:string="nombre123";
+  private horaLlegada="15:00 pm";
+  private horaSalida="8:00 am";
   private valueDetaillBus:any[];
   public dataSource:CompanyBus[] = mockBuses;
 
   ngOnInit() {
     // this.getDetallBus();
-    console.log(this.bussines);
+    // console.log(this.bussines);
     
     mockBuses.forEach(element => {
       this.valueDetaillBus = element.bus
       console.log(this.valueDetaillBus);
+      console.log(this.getNameCompany);
       
     });
   }

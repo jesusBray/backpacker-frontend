@@ -2,19 +2,25 @@
 
     <mat-card class="content-card">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title><a href="companyBus">Name Buss</a></mat-card-title>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title><a href="companyBus" style=text-decoration:none>{{getNameCompany.name}}</a></mat-card-title>
             <span ></span>
-            <mat-card-subtitle>{{bus.matricula}}</mat-card-subtitle>
+            <mat-card-subtitle>
+                <ul *ngFor="let company of getNameCompany.bus">
+                    <li>Numero de Bus: {{company.id}}</li>
+                    <li>Matricula: {{company.matricula}}</li>
+                    <li>Hora de llegada -> La Paz: {{horaLlegada}}</li>
+                    <li>Hora de salida -> Cochabamba: {{horaSalida}}</li>
+                </ul>
+            </mat-card-subtitle>
         </mat-card-header>
-       
-        <mat-card-content>
+       <!-- optional tag -->
+        <!-- <mat-card-content>
             <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small
+            The Shiba Inu is the smallest of the six original
             </p>
-        </mat-card-content>
-        
+        </mat-card-content> -->
+        <!-- end -->
     </mat-card>
 </div>
 <!-- <p>{{valueDetaillBus}}</p> -->

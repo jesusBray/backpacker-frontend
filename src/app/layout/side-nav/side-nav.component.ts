@@ -10,8 +10,8 @@ const mockBuses =
     name:'Bolivar',
     bus:[
       { 
-        id:123,
-        matricula:'xxx-123'
+        id:23,
+        matricula:'pjs-223'
       }
     ]
   },
@@ -20,7 +20,7 @@ const mockBuses =
     name:'Trans Benito',
     bus:[
       { 
-        id:123,
+        id:454,
         matricula:'xxx-123'
       }
     ]
@@ -30,8 +30,8 @@ const mockBuses =
     name:'Copacabana',
     bus:[
       { 
-        id:123,
-        matricula:'xxx-123'
+        id:655,
+        matricula:'pgt-422'
       }
     ]
   },
@@ -40,8 +40,8 @@ const mockBuses =
     name:'Trans La Paz',
     bus:[
       { 
-        id:123,
-        matricula:'xxx-123'
+        id:977,
+        matricula:'gpp-992'
       }
     ]
   },
@@ -53,6 +53,7 @@ const mockBuses =
 })
 export class SideNavComponent {
 
+  private companyBuss:string;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -75,13 +76,13 @@ export class SideNavComponent {
     });
   }
 
-  activatePanel(){
+  activatePanel(value){
     this.show = true;
     // this.thenBlock = this.thenBlock === this.primaryBlock ? this.secondaryBlock : this.primaryBlock;
     // this.dataSource.forEach(element => {
     //   this.dataSourceDetall = element;
     // });
-    console.log("IMPRIMIENDO ");
-    
+    console.log(value);
+    this.companyBuss = value;
   }
 }

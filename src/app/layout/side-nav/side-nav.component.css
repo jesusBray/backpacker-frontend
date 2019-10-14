@@ -23,3 +23,16 @@
   width: 50%;
   background: rgb(160, 158, 158);
 }
+.business div:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.business div.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.business div.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}

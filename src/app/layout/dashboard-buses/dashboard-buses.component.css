@@ -7,9 +7,11 @@
     max-width: 50%;
 }
 
-.example-header-image {
-    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
-    /* background-size: cover; */
+.header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    margin-top: 4%;
+    margin-left: 4%;
 }
 
 .content-card{
