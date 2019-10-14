@@ -1,0 +1,48 @@
+<mat-toolbar>Company buss</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- name_empresa Column -->
+  <ng-container matColumnDef="name_empresa">
+    <th mat-header-cell *matHeaderCellDef> Name Empresa. </th>
+    <td mat-cell *matCellDef="let element"> {{element.name_empresa}} </td>
+  </ng-container>
+
+  <!-- num_bus Column -->
+  <ng-container matColumnDef="num_bus">
+    <th mat-header-cell *matHeaderCellDef> Num Bus </th>
+    <td mat-cell *matCellDef="let element"> {{element.num_bus}} </td>
+  </ng-container>
+
+  <!-- horario_llegada Column -->
+  <ng-container matColumnDef="horario_llegada">
+    <th mat-header-cell *matHeaderCellDef> Horario Llegada </th>
+    <td mat-cell *matCellDef="let element"> {{element.horario_llegada}} </td>
+  </ng-container>
+
+  <!-- horario_salida Column -->
+  <ng-container matColumnDef="horario_salida">
+    <th mat-header-cell *matHeaderCellDef> Horario Salida </th>
+    <td mat-cell *matCellDef="let element"> {{element.horario_salida}} </td>
+  </ng-container>
+
+    <!-- phone Column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef> Phone </th>
+    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+  </ng-container>
+
+    <!-- tiempo_receso Column -->
+  <ng-container matColumnDef="tiempo_receso">
+    <th mat-header-cell *matHeaderCellDef> Tiempo Receso </th>
+    <td mat-cell *matCellDef="let element"> {{element.tiempo_receso}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+    <a mat-list-item href="main">atras</a>
+
