@@ -30,8 +30,3 @@ Step 5. Run the application with the following command.
 ```bash
 `npx @angular/cli serve`
 ```
-
-Step 6. position yourself on branch v1
-```bash
-git branch v1.2
-```
