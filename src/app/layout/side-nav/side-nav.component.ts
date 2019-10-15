@@ -12,6 +12,14 @@ const mockBuses =
       { 
         id:23,
         matricula:'pjs-223'
+      },
+      { 
+        id:100,
+        matricula:'qop-123'
+      },
+      { 
+        id:40,
+        matricula:'asd-933'
       }
     ]
   },
@@ -78,11 +86,6 @@ export class SideNavComponent {
 
   activatePanel(value){
     this.show = true;
-    // this.thenBlock = this.thenBlock === this.primaryBlock ? this.secondaryBlock : this.primaryBlock;
-    // this.dataSource.forEach(element => {
-    //   this.dataSourceDetall = element;
-    // });
-    console.log(value);
     this.companyBuss = value;
   }
 }

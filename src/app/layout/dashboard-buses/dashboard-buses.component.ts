@@ -51,7 +51,7 @@ const mockBuses =
 })
 export class DashboardBusesComponent implements OnInit {
 
-  @Input() getNameCompany;
+  @Input() getCompany;
 
   constructor() { }
 
@@ -63,14 +63,8 @@ export class DashboardBusesComponent implements OnInit {
   public dataSource:CompanyBus[] = mockBuses;
 
   ngOnInit() {
-    // this.getDetallBus();
-    // console.log(this.bussines);
-    
     mockBuses.forEach(element => {
       this.valueDetaillBus = element.bus
-      console.log(this.valueDetaillBus);
-      console.log(this.getNameCompany);
-      
     });
   }
 }

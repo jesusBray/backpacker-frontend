@@ -26,11 +26,12 @@
     <!-- Add Content Here -->
   <div class="content-basdoad">
     <div *ngIf="show; else elseBlock">
-      <app-dashboard-buses [getNameCompany]="companyBuss"></app-dashboard-buses>
+      <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
     </div>
     <ng-template #elseBlock>
         <app-dashboard></app-dashboard>
     </ng-template>
   </div>
+  <!-- end -->
   </mat-sidenav-content>
 </mat-sidenav-container>
