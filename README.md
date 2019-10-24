@@ -23,10 +23,17 @@ Step 3. Download the application with git.
 git clone https://github.com/jesusBray/backpacker-frontend.git.
 ```
 
-Step 4.
-`enter the folder with the application.`
-
-Step 5. Run the application with the following command.
+Step 4. enter the folder with the application.
 ```bash
-`npx @angular/cli serve`
+cd backpacker-frontend
 ```
+
+Step 5 install dependencies
+```bash
+npm install
+```
+
+Step 6. Run the application with the following command.
+```bash
+npx @angular/cli serve
+``` 
