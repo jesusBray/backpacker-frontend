@@ -2,8 +2,10 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu </mat-toolbar>
+      [opened]="(isHandset$ | async) === false" >
+    <mat-toolbar class="toolbar">
+      <span>Menu</span>
+    </mat-toolbar>
     <mat-nav-list>
       <div *ngFor="let business of dataSource">
         <a mat-list-item [class.selected]="business === selectedBusiness" (click)=activatePanel(business)>
@@ -22,16 +24,17 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <app-auth></app-auth>
+      <app-auth (selectOptionAuth)="getOption($event)" ></app-auth>
     </mat-toolbar>
-    <!-- Add Content Here -->
   <div class="content-basdoad">
+  <!-- Add Content Here -->
     <div *ngIf="show; else elseBlock">
       <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
     </div>
     <ng-template #elseBlock>
         <app-dashboard></app-dashboard>
     </ng-template>
+    
   </div>
   <!-- end -->
   </mat-sidenav-content>

@@ -62,7 +62,8 @@ const mockBuses =
 export class SideNavComponent {
 
   private companyBuss:string;
-  
+  private saveOption:any;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -79,14 +80,19 @@ export class SideNavComponent {
     
   }
 
-  public viewDetallBus() {
+  private viewDetallBus() {
     this.dataSource.forEach(element => {
       this.dataSourceDetall = element;
     });
   }
 
-  activatePanel(value){
+  private activatePanel(value){
     this.show = true;
     this.companyBuss = value;
+  }
+
+  private getOption(event){
+    console.log(event);
+    
   }
 }

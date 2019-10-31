@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from "./auth.component";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { LoginComponent } from "./login/login.component";
   ],
   imports: [
     CommonModule,
+    MatButtonModule,
+    MatInputModule,
   ],
   exports:[
     AuthComponent
