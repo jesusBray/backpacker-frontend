@@ -18,6 +18,8 @@ import { DashboardBusesComponent } from './dashboard-buses/dashboard-buses.compo
 import { SeatDetailsComponent } from './bus-company/seat-details/seat-details.component';
 import { SeatListComponent } from './bus-company/seat-list/seat-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+// import { AuthComponent } from "../auth/auth.component";
+import { AuthModule } from "../auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     DashboardBusesComponent,
     SeatDetailsComponent,
     SeatListComponent,
+    // AuthComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTableModule,
     HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    AuthModule,
   ],
   exports:[
     LayoutComponent

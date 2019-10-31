@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
-
 import { CoreService } from "../../../core/core.service";
 
 @Component({
@@ -36,6 +35,4 @@ export class SeatListComponent implements OnInit {
       console.log(foundDato);
     }));
   }
-
-
 }
