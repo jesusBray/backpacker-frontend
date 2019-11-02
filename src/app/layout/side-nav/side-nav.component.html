@@ -12,6 +12,9 @@
           {{business.name}}
         </a>
       </div>
+      <div>
+        <a mat-list-item (click)="getOption(3)">User</a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -28,13 +31,25 @@
     </mat-toolbar>
   <div class="content-basdoad">
   <!-- Add Content Here -->
-    <div *ngIf="show; else elseBlock">
-      <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
-    </div>
-    <ng-template #elseBlock>
-        <app-dashboard></app-dashboard>
-    </ng-template>
-    
+  
+    <ng-container [ngSwitch]="option">
+        <div *ngSwitchCase="'option1'">
+            <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
+        </div>
+        <div *ngSwitchCase="'login'">          
+          <app-login></app-login>
+        </div>
+        <div *ngSwitchCase="'register'">
+          <app-register></app-register>
+        </div>
+        <div *ngSwitchCase="3">
+          <app-adm></app-adm>
+        </div>
+        <div *ngSwitchDefault>
+          <app-dashboard></app-dashboard>
+        </div>
+    </ng-container>
+
   </div>
   <!-- end -->
   </mat-sidenav-content>

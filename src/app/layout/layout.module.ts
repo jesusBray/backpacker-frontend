@@ -19,6 +19,7 @@ import { SeatDetailsComponent } from './bus-company/seat-details/seat-details.co
 import { SeatListComponent } from './bus-company/seat-list/seat-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AuthModule } from "../auth/auth.module";
+import { AdmModule } from "./adm/adm.module";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AuthModule } from "../auth/auth.module";
     MatCardModule,
     MatGridListModule,
     AuthModule,
+    AdmModule,
   ],
   exports:[
     LayoutComponent

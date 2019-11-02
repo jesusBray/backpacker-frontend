@@ -63,7 +63,8 @@ export class SideNavComponent {
 
   private companyBuss:string;
   private saveOption:any;
-
+  private option: string;
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -86,13 +87,13 @@ export class SideNavComponent {
     });
   }
 
-  private activatePanel(value){
-    this.show = true;
+  private activatePanel(value) {
+    this.option ='option1';
     this.companyBuss = value;
   }
 
-  private getOption(event){
-    console.log(event);
-    
+  private getOption(event) {
+    this.option = event;
   }
+
 }

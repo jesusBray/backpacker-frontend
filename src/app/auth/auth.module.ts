@@ -6,6 +6,7 @@ import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,12 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     MatButtonModule,
     MatInputModule,
+    ReactiveFormsModule,
   ],
   exports:[
-    AuthComponent
+    AuthComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
 })
 export class AuthModule { }
