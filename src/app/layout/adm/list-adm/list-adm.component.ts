@@ -24,7 +24,7 @@ export class ListAdmComponent implements OnInit {
     );
   }
 
-  deleteOption(value){
+  deleteOption(value) {
     this.server.deleteUser(value).subscribe(
       resp =>{
         if (error) {
@@ -38,5 +38,11 @@ export class ListAdmComponent implements OnInit {
   editOption(user: User) {
     this.option = 1;
     localStorage.setItem('id',JSON.stringify(user));
+    this.server.getUserById(user).subscribe(resp => {
+      if (error) {
+        console.error(error);
+      }
+      console.log(resp);
+    })
   }
 }

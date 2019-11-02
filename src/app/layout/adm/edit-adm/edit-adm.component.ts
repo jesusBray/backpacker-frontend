@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdmService } from "../../../core/adm.service";
 import { User } from "../../../module/user";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-edit-adm',
@@ -22,17 +23,16 @@ export class EditAdmComponent implements OnInit {
     apellido: ['', Validators.required],
   })
 
-  getDat(){
-
-  }
-
   onSubmit() {
     let value = localStorage.getItem('id');
-    console.log(this.profileForm.value);
+    console.log("click en submit");
+    
     this.service.getUserById(value).subscribe(
-      user => {
-        console.log(user);
-        
-    })
+      resp => {
+        if (error) {
+          console.error(error);
+        }
+        console.log(resp);
+    });
   }
 }

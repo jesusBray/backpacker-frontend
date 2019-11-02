@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { from,pipe } from 'rxjs';
-import { filter, map, take } from 'rxjs/operators';
+import { filter, map, take, findIndex } from 'rxjs/operators';
 import { User } from "../module/user";
 
 const source = [{
@@ -29,12 +29,12 @@ export class AdmService {
   sourceElements: User[] = source;
   constructor(private http: HttpClient) { }
 
-  public url:string ='localhost://123123/asdas';
+  public url:string ='http://localhost:8080';
 
   //delet userId
   deleteUser(id:number):Observable<User[]> {
     return new Observable<User[]>((value) => {
-      value.next(this.sourceElements.filter(value => value.id !== id))
+      value.next(this.sourceElements.filter(value => value.id != id))
       // value.next(this.sourceElements);
       // const val = of(mock);
       // val.pipe(filter(ele => ele !== user));
@@ -44,21 +44,26 @@ export class AdmService {
     })
   }
 
-  deleteUsers(userId:number):any{
-    for (let index = 0; index < this.sourceElements.length; index++) {
-      if (userId == this.sourceElements[index].id) {
-        // this.sourceElements.filter(element => element !== userId);
-      }
-    }
-    
+
+  deleteUserById(userId:number):Observable<User[]>{
+    // for (let index = 0; index < this.sourceElements.length; index++) {
+    //   if (userId == this.sourceElements[index].id) {
+    //     // this.sourceElements.filter(element => element !== userId);
+    //   }
+    // }
+    // var myObservableArray = ko.observableArray();    // Initially an empty array
+    // myObservableArray.push('Some value'); 
+    return new Observable<User[]>(value => {
+      value.next(this.sourceElements.filter(resp => resp.id !== userId));
+    });
   }
 
 //get users
-  getUsers(): Observable<User[]>{
+  getUsers(): Observable<User[]> {
     return new Observable<User[]>((subscriber) => {
       subscriber.next(this.sourceElements);
     });
-    // return this.http.get(this.url)
+    // return this.http.get<User[]>(`Access-Control-Allow-Origin: ${this.url}/usuarios/https://joke-api-strict-cors.appspot.com/jokes/random`);
   }
 
 //create users
@@ -70,19 +75,22 @@ export class AdmService {
   }
 
   getUserById(userId): Observable<User[]> {
-    // return this.http.get(this.url, userId);
-    // const squareValues = map((val: number) => val * val);
-    // const nums = of(1, 2, 3);
-    // squaredNums = squareValues(nums);
-    return new Observable<User[]>(value => {
-      value.next(this.sourceElements)
-    }
-
-    ).pipe(filter(elem => elem == userId));
-    
-    // const squareValues = map((val: number) => val * val);
-    // const squaredNums = squareValues(nums);
+    return new Observable<User[]>(resp => {
+      // value.next(this.sourceElements.filter(ele => ele == value));
+      resp.next(this.sourceElements)
+    }).pipe(filter(elem => elem == userId));
+    //.pipe(map(userId) => )
+    //.pipe(filter(elem => elem == userId));
   }
 
+  updateUser(user: User):Observable<any> {
+    return new Observable<User>(resp => {
+      //value aux;
+      let newUser;
+      this.getUserById(user.id).subscribe(value => {
+        newUser = value;
+      });
+      resp.next(newUser)
+    })
+  }
 }
-
