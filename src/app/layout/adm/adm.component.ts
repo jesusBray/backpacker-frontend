@@ -13,7 +13,11 @@ export class AdmComponent implements OnInit {
   ngOnInit() {
   }
   
-  buttocase(value){
+  buttocase(value) {
     this.option = value
+  }
+
+  saveOption(value){
+    this.option = value;
   }
 }

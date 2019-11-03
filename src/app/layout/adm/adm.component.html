@@ -1,16 +1,13 @@
 <div class="content-button">
-    <button mat-button (click)="buttocase(1)" color="primary">Listar</button>
     <button mat-button (click)="buttocase(2)" color="primary">Crear</button>
 </div>
 
 <ng-container [ngSwitch]="option">
-    <div *ngSwitchCase="1">
-        <app-list-adm></app-list-adm>
-    </div>
+    
     <div *ngSwitchCase="2">
-        <app-create-adm></app-create-adm>
+        <app-create-adm (saveUser)="saveOption($order)" ></app-create-adm>
     </div>
     <div *ngSwitchDefault>
-                
+        <app-list-adm></app-list-adm>
     </div>
 </ng-container>

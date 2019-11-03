@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { AdmService } from "../../../core/adm.service";
@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 })
 export class CreateAdmComponent implements OnInit {
 
+  @Output() saveUser = new EventEmitter();
   constructor(private fb: FormBuilder, private server: AdmService, private router: Router) { }
 
   ngOnInit() {
@@ -25,8 +26,8 @@ export class CreateAdmComponent implements OnInit {
   onSubmit(){
     this.server.createUser(this.profileForm.value).subscribe(
       value => {
-        alert("se creo con exito");
       }
     )
+    this.saveUser.emit('');
   }
 }

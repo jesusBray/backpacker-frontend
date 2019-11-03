@@ -1,4 +1,4 @@
-
+<div *ngIf="showOption; else elseBlock">
     <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
         <div class="form-group">
 
@@ -15,3 +15,8 @@
             </div>
         </div>
     </form>
+</div>
+
+<ng-template #elseBlock>
+    <app-list-adm></app-list-adm>
+</ng-template>
