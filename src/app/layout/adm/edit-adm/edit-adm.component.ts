@@ -12,27 +12,23 @@ import { error } from '@angular/compiler/src/util';
 export class EditAdmComponent implements OnInit {
 
   userName: string;
+  user:User;
+  private value = localStorage.getItem('id');
   constructor(private fb: FormBuilder,private service: AdmService) { }
 
   ngOnInit() {
+    this.service.getUserById(this.value).subscribe(
+      resp => {
+        this.user = resp; 
+    });
   }
 
   profileForm = this.fb.group({
-    id: ['', Validators.required],
     name: ['', Validators.required],
     apellido: ['', Validators.required],
   })
 
   onSubmit() {
-    let value = localStorage.getItem('id');
-    console.log("click en submit");
-    
-    this.service.getUserById(value).subscribe(
-      resp => {
-        if (error) {
-          console.error(error);
-        }
-        console.log(resp);
-    });
+    this.service.updateUser(this.user);
   }
 }

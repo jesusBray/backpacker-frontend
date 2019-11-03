@@ -38,11 +38,5 @@ export class ListAdmComponent implements OnInit {
   editOption(user: User) {
     this.option = 1;
     localStorage.setItem('id',JSON.stringify(user));
-    this.server.getUserById(user).subscribe(resp => {
-      if (error) {
-        console.error(error);
-      }
-      console.log(resp);
-    })
   }
 }
