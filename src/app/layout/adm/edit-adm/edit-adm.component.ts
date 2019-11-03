@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AdmService } from "../../../core/adm.service";
 import { User } from "../../../module/user";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-edit-adm',
@@ -17,10 +16,7 @@ export class EditAdmComponent implements OnInit {
   constructor(private fb: FormBuilder,private service: AdmService) { }
 
   ngOnInit() {
-    this.service.getUserById(this.value).subscribe(
-      resp => {
-        this.user = resp; 
-    });
+    this.user = JSON.parse(this.value);
   }
 
   profileForm = this.fb.group({

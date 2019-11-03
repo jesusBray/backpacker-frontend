@@ -25,18 +25,15 @@ export class ListAdmComponent implements OnInit {
   }
 
   deleteOption(value) {
-    this.server.deleteUser(value).subscribe(
-      resp =>{
-        if (error) {
-          console.error(error);
-        }
-        this.items = resp;
-      }
-    )
+    this.server.deleteUser(value)
+    this.getUsers();
   }
 
   editOption(user: User) {
+    this.getUsers();
     this.option = 1;
     localStorage.setItem('id',JSON.stringify(user));
+    // console.log(user);
+    
   }
 }

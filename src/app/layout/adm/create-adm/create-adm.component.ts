@@ -26,8 +26,7 @@ export class CreateAdmComponent implements OnInit {
     this.server.createUser(this.profileForm.value).subscribe(
       value => {
         alert("se creo con exito");
-        this.router.navigate(["/main"]);
-      } 
+      }
     )
   }
 }
