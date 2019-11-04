@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  private user:any;
   constructor(private fb: FormBuilder, private activateRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -20,8 +21,12 @@ export class LoginComponent implements OnInit {
   })
 
   onSubmit() {
-    console.warn(this.profileForm.value);    
-    this.router.navigate(['/user']);
+    this.user = this.profileForm.value;
+    if (this.user.userName == 'adm' && this.user.pasword == 'adm') {
+      this.router.navigate(['/main/user']);
+    }
+    else
+      this.router.navigate(['/main']);
   }
 
 }

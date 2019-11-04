@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { AdmService } from "../../../core/adm.service";
 import { User} from "../../../module/user";
-import { error } from 'util';
 
 
 @Component({
@@ -10,6 +9,8 @@ import { error } from 'util';
   styleUrls: ['./list-adm.component.css']
 })
 export class ListAdmComponent implements OnInit {
+
+  private titleNames :string[]= ['ID','NAME','LAST NAME','ACTIONS']
   private items: any[];
   private option:any;
   constructor(private server: AdmService) { }
@@ -29,11 +30,9 @@ export class ListAdmComponent implements OnInit {
     this.getUsers();
   }
 
-  editOption(user: User) {
+  editOption(user) {
     this.getUsers();
     this.option = 1;
-    localStorage.setItem('id',JSON.stringify(user));
-    // console.log(user);
-    
+    localStorage.setItem('id',JSON.stringify(user));  
   }
 }

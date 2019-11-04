@@ -4,11 +4,13 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false" >
     <mat-toolbar class="toolbar">
-      <span>Menu</span>
+      <span> Menu </span>
     </mat-toolbar>
     <mat-nav-list>
       <div *ngFor="let business of dataSource">
-        <a mat-list-item [class.selected]="business === selectedBusiness" (click)=activatePanel(business)>
+        <a mat-list-item 
+        [class.selected]="business === selectedBusiness" 
+        (click)=activatePanel(business)>
           {{business.name}}
         </a>
       </div>

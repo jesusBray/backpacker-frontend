@@ -9,7 +9,7 @@ import { AuthService } from "../../core/auth.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  private user:any;
   constructor(
     private fb: FormBuilder, 
     private router: Router, 
@@ -28,21 +28,22 @@ export class RegisterComponent implements OnInit {
   })
 
   onSubmit() {
-    console.log(this.profileForm.value);
-    // this.updateUser();
-    this.gotoList();
-    
+    // this.user = this.profileForm.value;
+    // if (this.user.userName == 'adm' && this.user.pasword == 'adm') {
+      
+    // }
+    // else
+    //   this.router.navigate(['/main']);
+    // }
+    this.router.navigate(['/main/user']);
   }
 
-  updateUser(){
-    this.authService.createUser(this.profileForm.value).subscribe(
-      data => console.log(data),
-      error => console.error(error)
-    );
-    // this.gotoList();
-  }
+  // updateUser(){
+  //   this.authService.createUser(this.profileForm.value).subscribe(
+  //     data => console.log(data),
+  //     error => console.error(error)
+  //   );
+  //   // this.gotoList();
+  // }
 
-  gotoList() {
-    this.router.navigate(['/user']);
-  }
 }
