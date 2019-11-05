@@ -14,7 +14,7 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
   }
 
-  private getOption(value){
+  private getOption(value) {
     this.selectOptionAuth.emit(value);
   }
 }
