@@ -1,0 +1,37 @@
+<ng-container [ngSwitch]="option">
+    <div *ngSwitchCase="1">
+        <app-edit-adm></app-edit-adm>
+    </div>
+    <table *ngSwitchDefault mat-table [dataSource]="items" class="mat-elevation-z8" >
+
+        <ng-container matColumnDef="ID">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="NAME">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="LAST NAME">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="ACTIONS" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button color="warn" (click)="deleteOption(element.id)">Delet</button>
+                <button mat-button color="primary" (click)="editOption(element)">Edit</button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="titleNames"></tr>
+        <tr mat-row *matRowDef="let row; columns: titleNames;"></tr>
+    </table>
+</ng-container>
+
+
+  
+  

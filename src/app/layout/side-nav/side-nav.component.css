@@ -36,3 +36,8 @@
   background-color: #BBD8DC;
   color: white;
 }
+
+.toolbar{
+  display: flex;
+  justify-content:space-between;
+}

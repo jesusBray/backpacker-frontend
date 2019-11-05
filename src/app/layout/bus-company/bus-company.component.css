@@ -1,4 +1,18 @@
-table {
+
+.container-grid{
+    /* height: 100%; */
     width: 100%;
-  }
-  
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+}
+
+.seat-list {
+    width: 50%;
+    /* height: 100%; */
+}
+
+.seat-detail {
+    width: 50%;
+    /* height: 100%; */
+}

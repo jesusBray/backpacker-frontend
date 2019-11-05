@@ -1,0 +1,27 @@
+
+<form  [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" formControlName="apellido">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Pasword" formControlName="pasword">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Telefono" formControlName="telefono">
+    </mat-form-field>
+
+    <div class="button">
+        <button mat-button type="submit" [disabled]="!profileForm.valid" >Submit</button>
+    </div>        
+</form>

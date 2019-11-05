@@ -12,6 +12,14 @@ const mockBuses =
       { 
         id:23,
         matricula:'pjs-223'
+      },
+      { 
+        id:100,
+        matricula:'qop-123'
+      },
+      { 
+        id:40,
+        matricula:'asd-933'
       }
     ]
   },
@@ -54,6 +62,9 @@ const mockBuses =
 export class SideNavComponent {
 
   private companyBuss:string;
+  private saveOption:any;
+  private option: string;
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -70,19 +81,19 @@ export class SideNavComponent {
     
   }
 
-  public viewDetallBus() {
+  private viewDetallBus() {
     this.dataSource.forEach(element => {
       this.dataSourceDetall = element;
     });
   }
 
-  activatePanel(value){
-    this.show = true;
-    // this.thenBlock = this.thenBlock === this.primaryBlock ? this.secondaryBlock : this.primaryBlock;
-    // this.dataSource.forEach(element => {
-    //   this.dataSourceDetall = element;
-    // });
-    console.log(value);
+  private activatePanel(value) {
+    this.option ='option1';
     this.companyBuss = value;
   }
+
+  private getOption(event) {
+    this.option = event;
+  }
+
 }

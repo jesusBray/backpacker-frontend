@@ -1,12 +1,11 @@
-<div *ngFor="let bus of valueDetaillBus">
-
-    <mat-card class="content-card">
+<div>
+    <mat-card class="content-card" *ngFor="let company of getCompany.bus">
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
-            <mat-card-title><a href="companyBus" style=text-decoration:none>{{getNameCompany.name}}</a></mat-card-title>
+            <mat-card-title><a href="companyBus" style=text-decoration:none>{{getCompany.name}}</a></mat-card-title>
             <span ></span>
             <mat-card-subtitle>
-                <ul *ngFor="let company of getNameCompany.bus">
+                <ul>
                     <li>Numero de Bus: {{company.id}}</li>
                     <li>Matricula: {{company.matricula}}</li>
                     <li>Hora de llegada -> La Paz: {{horaLlegada}}</li>
@@ -17,10 +16,9 @@
        <!-- optional tag -->
         <!-- <mat-card-content>
             <p>
-            The Shiba Inu is the smallest of the six original
+            text 
             </p>
         </mat-card-content> -->
         <!-- end -->
     </mat-card>
 </div>
-<!-- <p>{{valueDetaillBus}}</p> -->

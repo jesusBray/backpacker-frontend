@@ -1,0 +1,15 @@
+
+<form  [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="User" formControlName="userName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Pasword" formControlName="pasword">
+    </mat-form-field>
+
+    <div class="button">
+        <button mat-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </div>
+</form>

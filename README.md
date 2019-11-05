@@ -36,4 +36,4 @@ npm install
 Step 6. Run the application with the following command.
 ```bash
 npx @angular/cli serve
-```
+``` 

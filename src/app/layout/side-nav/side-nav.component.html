@@ -2,18 +2,25 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+      [opened]="(isHandset$ | async) === false" >
+    <mat-toolbar class="toolbar">
+      <span> Menu </span>
+    </mat-toolbar>
     <mat-nav-list>
       <div *ngFor="let business of dataSource">
-        <a mat-list-item [class.selected]="business === selectedBusiness" (click)=activatePanel(business)>
+        <a mat-list-item 
+        [class.selected]="business === selectedBusiness" 
+        (click)=activatePanel(business)>
           {{business.name}}
         </a>
+      </div>
+      <div>
+        <a mat-list-item (click)="getOption(3)">User</a>
       </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="toolbar">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -22,15 +29,30 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <app-auth (selectOptionAuth)="getOption($event)" ></app-auth>
     </mat-toolbar>
-    <!-- Add Content Here -->
   <div class="content-basdoad">
-    <div *ngIf="show; else elseBlock">
-      <app-dashboard-buses [getNameCompany]="companyBuss"></app-dashboard-buses>
-    </div>
-    <ng-template #elseBlock>
-        <app-dashboard></app-dashboard>
-    </ng-template>
+  <!-- Add Content Here -->
+  
+    <ng-container [ngSwitch]="option">
+        <div *ngSwitchCase="'option1'">
+            <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
+        </div>
+        <div *ngSwitchCase="'login'">          
+          <app-login></app-login>
+        </div>
+        <div *ngSwitchCase="'register'">
+          <app-register></app-register>
+        </div>
+        <div *ngSwitchCase="3">
+          <app-adm></app-adm>
+        </div>
+        <div *ngSwitchDefault>
+          <app-dashboard></app-dashboard>
+        </div>
+    </ng-container>
+
   </div>
+  <!-- end -->
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -15,6 +15,11 @@ import { LayoutComponent } from "./layout.component";
 import { BusCompanyComponent } from './bus-company/bus-company.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardBusesComponent } from './dashboard-buses/dashboard-buses.component';
+import { SeatDetailsComponent } from './bus-company/seat-details/seat-details.component';
+import { SeatListComponent } from './bus-company/seat-list/seat-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { AuthModule } from "../auth/auth.module";
+import { AdmModule } from "./adm/adm.module";
 
 @NgModule({
   declarations: [
@@ -23,6 +28,8 @@ import { DashboardBusesComponent } from './dashboard-buses/dashboard-buses.compo
     BusCompanyComponent,
     DashboardComponent,
     DashboardBusesComponent,
+    SeatDetailsComponent,
+    SeatListComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +41,10 @@ import { DashboardBusesComponent } from './dashboard-buses/dashboard-buses.compo
     MatListModule,
     MatTableModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule,
+    AuthModule,
+    AdmModule,
   ],
   exports:[
     LayoutComponent

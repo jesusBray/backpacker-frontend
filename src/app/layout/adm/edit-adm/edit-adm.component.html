@@ -1,0 +1,22 @@
+<div *ngIf="showOption; else elseBlock">
+    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
+        <div class="form-group">
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="name" [(ngModel)]="user.name" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="apellido" [(ngModel)]="user.apellido" formControlName="apellido">
+            </mat-form-field>
+
+            <div class="button">
+                <button mat-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<ng-template #elseBlock>
+    <app-list-adm></app-list-adm>
+</ng-template>
