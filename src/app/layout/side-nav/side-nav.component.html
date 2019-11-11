@@ -9,8 +9,8 @@
     <mat-nav-list>
       <div *ngFor="let business of dataSource">
         <a mat-list-item 
-        [class.selected]="business === selectedBusiness" 
-        (click)=activatePanel(business)>
+          [class.selected]="business === selectedBusiness" 
+          (click)=activatePanel(business.name)>
           {{business.name}}
         </a>
       </div>
@@ -31,14 +31,15 @@
       </button>
       <app-auth (selectOptionAuth)="getOption($event)" ></app-auth>
     </mat-toolbar>
-  <div class="content-basdoad">
   <!-- Add Content Here -->
+  <div class="content-bashboard">
   
     <ng-container [ngSwitch]="option">
+    
         <div *ngSwitchCase="'option1'">
             <app-dashboard-buses [getCompany]="companyBuss"></app-dashboard-buses>
         </div>
-        <div *ngSwitchCase="'login'">          
+        <div *ngSwitchCase="'login'">
           <app-login></app-login>
         </div>
         <div *ngSwitchCase="'register'">
@@ -51,6 +52,8 @@
           <app-dashboard></app-dashboard>
         </div>
     </ng-container>
+
+    <app-main-board [optionView]="companyBuss"></app-main-board>
 
   </div>
   <!-- end -->

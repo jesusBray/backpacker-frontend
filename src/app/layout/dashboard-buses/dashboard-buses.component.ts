@@ -1,48 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CompanyBus } from "../../module/company-bus";
-const mockBuses = 
-[
-  {
-    id:'12333',
-    name:'Bolivar',
-    bus:[
-      { 
-        id:123,
-        matricula:'xxx-123'
-      }
-    ]
-  },
-  {
-    id:'345345',
-    name:'Trans Benito',
-    bus:[
-      { 
-        id:123,
-        matricula:'xxx-123'
-      }
-    ]
-  },
-  {
-    id:'5677',
-    name:'Copacabana',
-    bus:[
-      { 
-        id:123,
-        matricula:'xxx-123'
-      }
-    ]
-  },
-  {
-    id:'6767676',
-    name:'Trans La Paz',
-    bus:[
-      { 
-        id:123,
-        matricula:'xxx-123'
-      }
-    ]
-  },
-]
 
 @Component({
   selector: 'app-dashboard-buses',
@@ -60,11 +17,11 @@ export class DashboardBusesComponent implements OnInit {
   private horaLlegada="15:00 pm";
   private horaSalida="8:00 am";
   private valueDetaillBus:any[];
-  public dataSource:CompanyBus[] = mockBuses;
+  // public dataSource:CompanyBus[] = mockBuses;
 
   ngOnInit() {
-    mockBuses.forEach(element => {
-      this.valueDetaillBus = element.bus
-    });
+    // mockBuses.forEach(element => {
+    //   this.valueDetaillBus = element.bus
+    // });
   }
 }

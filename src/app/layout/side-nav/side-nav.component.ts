@@ -61,7 +61,7 @@ const mockBuses =
 })
 export class SideNavComponent {
 
-  private companyBuss:string;
+  companyBuss:string;
   private saveOption:any;
   private option: string;
   
@@ -89,6 +89,7 @@ export class SideNavComponent {
 
   private activatePanel(value) {
     this.option ='option1';
+    // console.log(value);
     this.companyBuss = value;
   }
 

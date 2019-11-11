@@ -20,6 +20,7 @@ import { SeatListComponent } from './bus-company/seat-list/seat-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AuthModule } from "../auth/auth.module";
 import { AdmModule } from "./adm/adm.module";
+import { MainBoardComponent } from './main-board/main-board.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AdmModule } from "./adm/adm.module";
     DashboardBusesComponent,
     SeatDetailsComponent,
     SeatListComponent,
+    MainBoardComponent,
   ],
   imports: [
     CommonModule,

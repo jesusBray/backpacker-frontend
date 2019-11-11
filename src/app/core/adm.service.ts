@@ -78,9 +78,9 @@ export class AdmService {
     // return this.http.post(`${this.url}`,user);
   }
 
-  getUserById(userId:User): Observable<User> {
+  getUserById(userId:number): Observable<User> {
     return new Observable<User>(resp => {
-      resp.next(this.sourceElements.find(elem => elem.id == userId.id))
+      resp.next(this.sourceElements.find(elem => elem.id == userId))
     })
   }
 
