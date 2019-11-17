@@ -1,7 +1,7 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { AdmService } from "../../../core/adm.service";
 import { User } from "../../../module/user";
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({

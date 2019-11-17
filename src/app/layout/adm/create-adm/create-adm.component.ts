@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
 import { AdmService } from "../../../core/adm.service";
 import { Router } from "@angular/router";
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-create-adm',
@@ -18,16 +18,21 @@ export class CreateAdmComponent implements OnInit {
   }
 
   profileForm = this.fb.group({
-    id: ['', Validators.required],
-    name: ['', Validators.required],
-    apellido: [''],
+    apellido: ['', Validators.required],
+    email: ['', Validators.required],
+    nombre: ['', Validators.required],
+    password: ['', Validators.required],
+    telefono: [''],
   });
 
   onSubmit(){
     this.server.createUser(this.profileForm.value).subscribe(
       value => {
+        if (error) 
+          console.log('Error found: ',error);
       }
-    )
+    );
+      console.log(this.profileForm.value);
     this.saveUser.emit('');
   }
 }

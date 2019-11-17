@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { AdmService } from "../../../core/adm.service";
-import { User} from "../../../module/user";
-
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-list-adm',
@@ -10,7 +9,7 @@ import { User} from "../../../module/user";
 })
 export class ListAdmComponent implements OnInit {
 
-  private titleNames :string[]= ['ID','NAME','LAST NAME','ACTIONS']
+  private titleNames :string[]= ['NAME','LAST NAME','PHONE','ACTIONS']
   private items: any[];
   private option:any;
   constructor(private server: AdmService) { }
@@ -20,13 +19,19 @@ export class ListAdmComponent implements OnInit {
   }
 
   getUsers(){
-    this.server.getUsers().subscribe(
-      value => this.items = value
+    this.server.getAllUsers().subscribe(
+      value => this.items = value._embedded.usuarioList
     );
   }
 
   deleteOption(value) {
-    this.server.deleteUser(value)
+    this.server.deleteUser(value).subscribe(resp => {
+      if (error) {
+        console.log('Error found: ', error);
+      }
+      
+      console.log("sussesful delete resp");
+    })
     this.getUsers();
   }
 

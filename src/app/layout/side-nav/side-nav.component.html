@@ -17,6 +17,9 @@
       <div>
         <a mat-list-item (click)="getOption(3)">User</a>
       </div>
+      <div>
+        <a mat-list-item (click)="getOption(4)">buses</a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -46,6 +49,9 @@
         </div>
         <div *ngSwitchCase="3">
           <app-adm></app-adm>
+        </div>
+        <div *ngSwitchCase="4">
+          <app-list-buses></app-list-buses>
         </div>
         <div *ngSwitchDefault>
           <app-dashboard></app-dashboard>

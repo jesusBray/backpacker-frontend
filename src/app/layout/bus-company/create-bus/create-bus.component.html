@@ -1,0 +1,17 @@
+<form  [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="example-form">
+    <div class="form-group">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="destination" formControlName="destino">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enrollment" formControlName="matricula" >
+        </mat-form-field>
+
+        <div class="button">
+            <button mat-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        </div>
+    </div>
+</form>
+    

@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from "./layout/layout.component";
 import { EditAdmComponent } from "./layout/adm/edit-adm/edit-adm.component";
-
+import { ListBusesComponent } from "./layout/bus-company/list-buses/list-buses.component";
 const routes: Routes = [
   {path:'',redirectTo:'main', pathMatch:'full'},
   {path:'main', component: LayoutComponent},
   {path:'main/user', component: LayoutComponent},
+  {path:'main/user/buses', component: ListBusesComponent},
   {path:'main/user/config', component: EditAdmComponent},
 
   //here redirect a child path

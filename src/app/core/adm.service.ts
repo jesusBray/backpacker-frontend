@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from "../module/user";
 import { take } from 'rxjs/operators';
-
+import { SchemaUsuarios } from "../module/schema-usuarios";
 const source = [{
   id:1,
   name:"Juan",
@@ -37,21 +37,21 @@ export class AdmService {
   //   headers: this.headers
   // };
   
-  // private url: string= 'http://localhost:8080/usuarios';
+  private url: string= 'http://localhost:8080';
 
-  public url:string ='/usuarios';
+  // public url:string ='/usuarios';
   private sourceElements: User[] = source;
   constructor(private http: HttpClient) { }
 
 
-  deleteUser(id:number) {
-    return new Observable<User[]>((value) => {
-      if (this.sourceElements.length <= 1) {
-        value.next(this.sourceElements)
-      };
-      value.next(this.sourceElements.filter(value => value.id != id))
-    }).subscribe(resp => this.sourceElements = resp);
-    // return this.http.delete(`${this.url}/${id}`,this.httpOptions)
+  deleteUser(id:number):Observable<any> {
+    // return new Observable<User[]>((value) => {
+    //   if (this.sourceElements.length <= 1) {
+    //     value.next(this.sourceElements)
+    //   };
+    //   value.next(this.sourceElements.filter(value => value.id != id))
+    // }).subscribe(resp => this.sourceElements = resp);
+    return this.http.delete(`${this.url}/usuarios/${id}`,this.httpOptions)
   }
   
 
@@ -62,12 +62,12 @@ export class AdmService {
     // return this.http.get<User[]>(this.url, this.hhttpOptions);
   }
 
-  createUser(user: User): Observable<User[]> {
-    return new Observable(value => {
-      this.sourceElements.push(user);
-      value.next(this.sourceElements);
-    })
-    // return this.http.post(`${this.url}`,user);
+  getAllUsers():Observable<SchemaUsuarios>{
+    return this.http.get<SchemaUsuarios>(`${this.url}/usuarios`,this.httpOptions);
+  }
+
+  createUser(user): Observable<any> {
+    return this.http.post(`${this.url}/usuarios`,user,this.httpOptions);
   }
 
   createListUser(user: User)/*:Observable<User[]>*/{
